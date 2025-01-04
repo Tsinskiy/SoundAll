@@ -1,0 +1,30 @@
+﻿@model BLL.DTO.MusicFinderDTO
+@{
+    ViewData["Title"] = "Find";
+}
+
+<h1 style="text-decoration:underline; text-decoration-color: #a6bcfb;"><i class="ri-search-line" style="color: #75a2e5;"></i>Search</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Find" method="post">
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">Name</label>
+                <input asp-for="Name" class="form-control" />
+                <label asp-for="Author" class="control-label">Author</label>
+                <input asp-for="Author" class="form-control" />
+                <label asp-for="Tag" class="control-label">Tag</label>
+                <input asp-for="Tag" class="form-control" />
+                <label asp-for="Genre" class="control-label">Genre</label>
+                <input asp-for="Genre" class="form-control" />
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Search" class="btn" id="createbtn" />
+            </div>
+        </form>
+    </div>
+</div>
+
+

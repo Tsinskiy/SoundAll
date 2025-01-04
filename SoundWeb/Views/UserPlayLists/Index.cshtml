@@ -1,0 +1,40 @@
+﻿@model IEnumerable<DAL.Models.UserPlayList>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Your Playlists</h1>
+
+@* <p>
+    <a asp-action="Create" class="btn btn-primary">Create New <i class="ri-add-line"></i> </a>
+</p> *@
+<p> 
+    <a asp-action="Createown" class="btn btn-primary">Create New <i class="ri-add-line"></i> </a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+
+            <td>
+                    <a asp-action="Details" asp-route-id="@item.Id" style="text-decoration: none;"><i class="ri-music-2-fill"></i></a>
+                    <a asp-action="Edit" asp-route-id="@item?.Id" style="text-decoration: none;"><i class="ri-edit-line"></i></a>
+                    <a asp-action="Delete" asp-route-id="@item?.Id" style="text-decoration: none;"><i class="ri-delete-bin-line"></i></a>
+                </td>
+        </tr>
+}
+    </tbody>
+</table>

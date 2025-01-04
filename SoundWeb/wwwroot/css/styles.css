@@ -1,0 +1,13 @@
+﻿body {
+
+
+}
+.custom-link {
+    color: white; /* Set the text color to white */
+    text-decoration: none; /* Remove the underline */
+}
+
+    .custom-link:hover {
+        color: white; /* Ensure the text remains white on hover */
+        text-decoration: none; /* Ensure the underline is removed on hover */
+    }

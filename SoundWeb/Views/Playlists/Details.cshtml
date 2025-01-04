@@ -1,0 +1,52 @@
+@model DAL.Models.Playlist
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<p>
+    <a asp-controller="MusicPlaylists" asp-action="AddMusic" class="btn btn-primary" asp-route-playlistId="@Model.Id">Add Music <i class="ri-add-line"></i> </a>
+</p>
+<h4>
+    <div>
+
+        @Html.DisplayFor(model => model.Name)
+
+    </div>
+</h4>
+
+<div>
+    <h4>Music List</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.MusicPlaylists.First().Music.Name)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.MusicPlaylists)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Music.Name)
+                    </td>
+                    <td>
+                        <a asp-controller="Musics" asp-action="Details" asp-route-id="@item.Music.Id" style="text-decoration: none;"><i class="ri-information-line"></i></a>
+                        <a asp-controller="Musics" asp-action="Delete" asp-route-id="@item.Music.Id" style="text-decoration: none;"><i class="ri-delete-bin-line"></i></a>
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">Edit</a> |
+    <a asp-action="Index" class="btn btn-secondary" style="color: white; text-decoration: none;">Back to List</a>
+</div>

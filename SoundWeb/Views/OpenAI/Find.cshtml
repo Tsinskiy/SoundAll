@@ -1,0 +1,26 @@
+﻿@model BLL.DTO.OpenAIDTO
+
+@{
+    ViewData["Title"] = "Find";
+}
+
+<h1 style="text-decoration:underline; text-decoration-color: #a6bcfb;"><i class="ri-robot-line" style="color: #75a2e5;"></i>Audio Assistant</h1>
+<hr />
+<h2>Hello, I am your personal audio assistance!</h2>
+<h4>Tell me what audio are you looking for and i will give you the best advice!</h4>
+
+<form asp-action="Find" method="post">
+    <div class="form-group">
+        <label for="Question">Question</label>
+        <input type="text" class="form-control" id="Question" name="Question" value="@Model.Question" />
+        <span asp-validation-for="Question" class="text-danger"></span>
+    </div>
+    <br />
+    <button type="submit" class="btn" id="createbtn">Ask</button>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

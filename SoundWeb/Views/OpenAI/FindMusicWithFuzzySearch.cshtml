@@ -1,0 +1,34 @@
+﻿@model BLL.DTO.MusicFuzzyFinderDTO
+@{
+    ViewData["Title"] = "Find Music With Fuzzy Search";
+}
+
+<h2>Forgot your favourite <span style="text-decoration:underline; text-decoration-color: #a6bcfb; color: #75a2e5;">audio</span> or <span style="text-decoration:underline; text-decoration-color: #a6bcfb; color: #75a2e5;">author
+
+</span> name?</h2>
+
+<h4>Just enter something similar - you will get the results even with typos!</h4>
+
+<form asp-action="FindMusicWithFuzzySearch" method="post">
+    <div class="form-group">
+        <label for="Name">Search</label>
+        <input type="text" class="form-control" id="Name" name="Name" value="@Model.Name" />
+    </div>
+    <br />
+    <button type="submit" class="btn" id="createbtn">Find</button>
+</form>
+
+@if (ViewBag.Results != null)
+{
+    <h3>Results:</h3>
+    <ul>
+        @foreach (var music in ViewBag.Results)
+        {
+            <li>
+                @music.Name by
+                @(music.Author != null ? music.Author.Name : "Unknown Author")
+                <a asp-controller="Musics" asp-action="Details" asp-route-id="@music.Id" class="btn btn-secondary">Details</a>
+            </li>
+        }
+    </ul>
+}

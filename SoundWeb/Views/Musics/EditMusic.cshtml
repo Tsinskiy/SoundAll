@@ -1,0 +1,37 @@
+﻿@model DAL.ModelsExt.EditMusicViewModel
+
+<h1 style="text-decoration:underline; text-decoration-color: #a6bcfb;"><i class="ri-pencil-line" style="color: #75a2e5;"></i>Editor</h1>
+<form asp-action="EditMusic">
+    <input type="hidden" asp-for="MusicId" />
+    <div>
+        <label asp-for="Volume">Adjust volume: <i class="ri-volume-up-fill" style="color: #75a2e5;"></i></label>
+        <input asp-for="Volume" type="range" min="0.0" max="1.0" step="0.01" />
+    </div>
+    <br />
+    <div>
+        <label asp-for="StartOffset">Starting timestamp for trimming(seconds): <i class="ri-scissors-fill" style="color: #75a2e5;"></i></label>
+        <input asp-for="StartOffset" type="number" min="0" />
+    </div>
+    <br />
+    <div>
+        <label asp-for="EndOffset">Ending timestamp for trimming(seconds): <i class="ri-scissors-fill" style="color: #75a2e5;"></i></label>
+        <input asp-for="EndOffset" type="number" min="0" />
+    </div>
+    <br />
+    <div>
+        <label asp-for="PitchFactor">Adjust pitch factor: <i class="ri-sound-module-line" style="color: #75a2e5;"></i></label>
+        <input asp-for="PitchFactor" type="range" min="0.5" max="2.0" step="0.1" />
+    </div>
+    <br />
+    <div>
+        <label asp-for="FadeInDuration">Set fade in duration (ms): <i class="ri-forbid-2-line" style="color: #75a2e5;"></i></label>
+        <input asp-for="FadeInDuration" type="number" min="0" />
+    </div>
+    <br />
+    <div>
+        <label asp-for="FadeOutDuration">Set fade out duration (ms): <i class="ri-forbid-line" style="color: #75a2e5;"></i></label>
+        <input asp-for="FadeOutDuration" type="number" min="0" />
+    </div>
+    <br />
+    <button type="submit" class="btn" id="createbtn" style="width: 170px;">Download edited</button>
+</form>
